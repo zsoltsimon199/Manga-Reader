@@ -1,4 +1,4 @@
-package com.zs.mangareader.ui.theme
+package com.zs.mangareader.core.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

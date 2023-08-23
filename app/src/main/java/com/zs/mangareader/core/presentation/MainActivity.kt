@@ -1,4 +1,4 @@
-package com.zs.mangareader
+package com.zs.mangareader.core.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,8 +10,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.zs.mangareader.ui.theme.MangaReaderTheme
+import com.zs.mangareader.core.presentation.ui.theme.MangaReaderTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

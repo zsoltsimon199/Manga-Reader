@@ -1,4 +1,4 @@
-package com.zs.mangareader.ui.theme
+package com.zs.mangareader.core.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
