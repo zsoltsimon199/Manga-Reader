@@ -1,4 +1,4 @@
-package com.zs.mangareader.core.presentation.ui.theme
+package com.zs.mangareader.core.presentation.reader.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
