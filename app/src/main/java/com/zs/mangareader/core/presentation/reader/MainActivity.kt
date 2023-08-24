@@ -34,6 +34,7 @@ import com.zs.mangareader.core.presentation.reader.ui.ThemeChooser
 import com.zs.mangareader.core.presentation.reader.ui.theme.MangaReaderTheme
 import com.zs.mangareader.core.utils.BottomNavItems
 import com.zs.mangareader.core.utils.Routes
+import com.zs.mangareader.featureBrowse.presentation.BrowseComposable
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableStateFlow
 
@@ -75,8 +76,17 @@ fun BottomNavigationView(navController: NavHostController, viewModel: MainViewMo
         navController.currentBackStackEntryAsState().value?.destination?.route !in items.map { it.route }
     val title = MainActivity.topBarTitle.collectAsState()
     val isDarkTheme = ThemeChooser.isDarkTheme.collectAsState()
+
     Scaffold(topBar = {
-        TopAppBar(title = {
+        TopAppBar(
+            colors = TopAppBarColors(
+                containerColor = MaterialTheme.colorScheme.primary,
+                titleContentColor = MaterialTheme.colorScheme.onPrimary,
+                navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
+                actionIconContentColor = MaterialTheme.colorScheme.onSecondary,
+                scrolledContainerColor = MaterialTheme.colorScheme.tertiary
+            ),
+            title = {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
@@ -169,10 +179,7 @@ fun ContentView(
             }
 
             composable(route = Routes.BROWSE) {
-                LaunchedEffect(Unit) {
-                    MainActivity.topBarTitle.value = BottomNavItems.BROWSE.title
-                }
-                Text(text = BottomNavItems.BROWSE.title)
+                BrowseComposable(navController = navController)
             }
 
             composable(route = Routes.MORE) {
